@@ -2,7 +2,7 @@
 package assignOne;
 
 import java.util.Scanner;
-import java.util.random.*;
+import java.lang.Math;
 
 /**
  * assignOne
@@ -28,8 +28,13 @@ public class assignOne {
                 choice = bot;
             }
             else if (choice == "bot"){
-                which_space=Math.random();
-                placeInputPosition(game_board, , choice);
+                int max = 9;
+                int min = 1;
+                int range = max - min + 1;
+                
+                which_space= ((int)Math.random()*range) +1;
+                System.out.println("Bot has chosen spot space"+ which_space);
+                placeInputPosition(game_board, which_space, choice);
             }
             
             if (checkWinner() != "none")
@@ -40,6 +45,9 @@ public class assignOne {
 
     public static void printgameBoard(char[][] gameBoard) {
         for(int x=0;x<3;x++){
+
+
+
             for(int y=0;y<3;y++){
                 System.out.printf("[%c] ", gameBoard[x][y]);
             }
@@ -121,8 +129,20 @@ public class assignOne {
     }
 
     public static String checkWinner() {
+        //checks if there is a column win
+        for(int x = 0; x<3; x++)
+            if((game_board[x][0]==game_board[x][1]) && (game_board[x][1] ==game_board[x][2])){
+                if(game_board[x][0] == 'X'){
+                    return "player";}
+                else if(game_board[x][0] == 'O'){
+                    return "bot"; }}
+        //still need to implement the row win
         
-        return null;
+        //still need to implement the diagnal win
+
+
+        return "none";
+
 
     }
 }
