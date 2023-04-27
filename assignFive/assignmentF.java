@@ -1,3 +1,5 @@
+
+import 
 /**
  * complex
  */
@@ -5,70 +7,96 @@ class Complex implements Cloneable, Comparable<Complex> {
     private double a;
     private double b;
 
-    public Complex(){
+    public Complex() {
 
     }
-    Complex(double a_in, double b_in){
+    public Complex(double a_in){
+        this.a = a_in;
+        this.b =0;
+    }
+
+    Complex(double a_in, double b_in) {
         this.a = a_in;
         this.b = b_in;
 
     }
-    public double getRealPart(){
+
+    public double getRealPart() {
         return a;
     }
-    public double getImaginaryPart(){
+
+    public double getImaginaryPart() {
         return b;
     }
-    public Complex add(Complex secondComplex){
-        double newA = a+secondComplex.a;
-        double newB = b+ secondComplex.b;
-        return new Complex(newA, newB);
-    }
-    public Complex subtract(Complex secondComplex){
-        //stilll needs to be implemented
-        return new Complex(newA, newB);
-    }
-    public Complex multiply(Complex secondComplex){
-        double newA = a* secondComplex.a - b*secondComplex.b;
-        double newB = b* secondComplex.a +a*secondComplex.b;
+
+    public Complex add(Complex secondComplex) {
+        double newA = a + secondComplex.a;
+        double newB = b + secondComplex.b;
         return new Complex(newA, newB);
     }
 
-    public double abs(){
-        return Math.sqrt(a*a+b*b);
+    public Complex subtract(Complex secondComplex) {
+        // stilll needs to be implemented
+        return new Complex(newA, newB);
     }
 
+    public Complex multiply(Complex secondComplex) {
+        double newA = a * secondComplex.a - b * secondComplex.b;
+        double newB = b * secondComplex.a + a * secondComplex.b;
+        return new Complex(newA, newB);
+    }
+
+    public double abs() {
+        return Math.sqrt(a * a + b * b);
+    }
 
     @Override
-    public String toString(){
-        
-        if(b!=0){
-            return a +" + "+b+"i";
+    public String toString() {
+
+        if (b != 0) {
+            return a + " + " + b + "i";
         }
-        
-        return a+"";
+
+        return a + "";
     }
-    
 
-
-    
-    
-    
-    
 }
+
 /**
  * assignmentF
  */
 public class assignmentF {
-    
+
     public static void main(String[] args) {
-        
-             System.out.println("Starting here");
-        
-             /*
-              * We have to implement all the classes in the slides and the only imported
-              * functionallity that we can use is the square root function
-              */
-        
+
+        System.out.println("Starting here");
+
+        /*
+         * We have to implement all the classes in the slides and the only imported
+         * functionallity that we can use is the square root function
+         */
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the first complex number: ");
+        double a = input.nextDouble();
+        double b = input.nextDouble();
+        Complex c1 = new Complex(a, b);
+        System.out.print("Enter the second complex number: ");
+        double c = input.nextDouble();
+        double d = input.nextDouble();
+        Complex c2 = new Complex(c, d);
+        System.out.println("(" + c1 + ")" + " + " + "(" + c2 + ")" + " = "
+                + c1.add(c2));
+        System.out.println("(" + c1 + ")" + " - " + "(" + c2 + ")" + " = "
+                + c1.subtract(c2));
+        System.out.println("(" + c1 + ")" + " * " + "(" + c2 + ")" + " = "
+                + c1.multiply(c2));
+        System.out.println("(" + c1 + ")" + " / " + "(" + c2 + ")" + " = "
+                + c1.divide(c2));
+        System.out.println("|" + c1 + "| = " + c1.abs());
+        Complex c3 = (Complex) c1.clone();
+        System.out.println(c1 == c3);
+        System.out.println(c3.getRealPart());
+        System.out.println(c3.getImaginaryPart());
+
     }
 }
