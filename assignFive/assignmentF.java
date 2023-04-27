@@ -66,17 +66,27 @@ class Complex implements Cloneable, Comparable<Complex> {
 
         return a + "";
     }
+    // @Override
+    // clone(){
+    //     //???
+    // }
+    @Override
+    public int compareTo(Complex c){
+        ///still lost
+    }
 
 }
 
-/**
+/*
+ * auther Steven Nguyen
+ * Test Function
  * assignmentF
  */
 public class assignmentF {
 
     public static void main(String[] args) {
 
-        System.out.println("Starting here");
+        //System.out.println("Starting here");
 
         /*
          * We have to implement all the classes in the slides and the only imported
