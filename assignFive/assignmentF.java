@@ -1,5 +1,5 @@
 
-import 
+import java.util.Scanner;
 /**
  * complex
  */
@@ -37,12 +37,19 @@ class Complex implements Cloneable, Comparable<Complex> {
 
     public Complex subtract(Complex secondComplex) {
         // stilll needs to be implemented
+        double newA = a - secondComplex.a;
+        double newB = b - secondComplex.b;
         return new Complex(newA, newB);
     }
 
     public Complex multiply(Complex secondComplex) {
         double newA = a * secondComplex.a - b * secondComplex.b;
         double newB = b * secondComplex.a + a * secondComplex.b;
+        return new Complex(newA, newB);
+    }
+    public Complex divide(Complex secondComplex) {
+        double newA = (a*secondComplex.a + b*secondComplex.b)/((secondComplex.a*secondComplex.a)+(secondComplex.b * secondComplex.b)) ;
+        double newB = (b*secondComplex.a - a*secondComplex.b)/((secondComplex.a*secondComplex.a)+(secondComplex.b * secondComplex.b));
         return new Complex(newA, newB);
     }
 
